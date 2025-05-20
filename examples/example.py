@@ -47,13 +47,17 @@ else:
     print(f"Warning: {example_file} not found. Using calculated data.")
 
 # Calculate rugosity, fractal dimension and height range
-results = rdh(example_data, L, L0)
+results = rdh(example_data, L, L0, data=data) 
 
 # Print results in a formatted way
 print("\nSurface geometry metrics:")
 print("-" * 30)
 for key, value in results.items():
-    print(f"{key:10s}: {value:.4f}")
+    # Add a check for None values
+    if value is None:
+        print(f"{key:10s}: None")
+    else:
+        print(f"{key:10s}: {value:.4f}")
 
 # Create a visualization of the height variation
 plt.figure(figsize=(10, 8))

@@ -11,4 +11,7 @@ from .functions import (
     rdh
 )
 
+# Import new functionality if needed
+from .surface_area import calculate_surface_area
+
 __version__ = '0.1.0'
